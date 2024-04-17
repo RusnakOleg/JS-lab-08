@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>П'ять подій з мишкою</title>
+    <style>
+        #clickMe {
+            font-size: 24pt;
+            color: black;
+            background-color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #holdAndRelease {
+            background-color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #hoverText {
+            background-color: blue;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>П'ять подій з мишкою</h1>
+    <div id="clickMe" onclick="toggleClickMe()">Клацніть на мене мишкою</div>
+    <div id="holdAndRelease" onmousedown="changeToGreen()" onmouseup="changeToYellow()">На цьому тексті натисніть, потримайте і відпустіть ліву кнопку мишки</div>
+    <div id="hoverText" onmouseover="mouseOver()" onmouseout="mouseOut()">Повільно проведіть курсором мишки по цій написи</div>
+
+    <script>
+        function toggleClickMe() {
+            var el = document.getElementById('clickMe');
+            if (el.style.fontSize === '48pt') {
+                el.style.fontSize = '24pt';
+                el.style.color = 'black';
+                el.style.backgroundColor = 'white';
+            } else {
+                el.style.fontSize = '48pt';
+                el.style.color = 'white';
+                el.style.backgroundColor = 'blue';
+            }
+        }
+
+        function changeToGreen() {
+            document.getElementById('holdAndRelease').style.backgroundColor = 'green';
+        }
+
+        function changeToYellow() {
+            document.getElementById('holdAndRelease').style.backgroundColor = 'yellow';
+        }
+
+        function mouseOver() {
+            document.getElementById('hoverText').style.backgroundColor = 'red';
+        }
+
+        function mouseOut() {
+            document.getElementById('hoverText').style.backgroundColor = 'blue';
+        }
+    </script>
+</body>
+</html>
