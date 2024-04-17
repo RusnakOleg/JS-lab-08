@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Зображення та підпис</title>
+    <style>
+        #caption {
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="imageContainer" onclick="changeContent(event)">
+        <img src="lion.jpg" alt="Lion" id="mainImage">
+        <p id="caption">Лев</p>
+    </div>
+
+    <script>
+        var images = [
+            { src: "lion.jpg", caption: "Лев" },
+            { src: "tiger.jpg", caption: "Тигр" }
+        ];
+        var currentImage = 0;
+
+        function changeContent(event) {
+            var targetId = event.target.id;
+
+            if (targetId === "mainImage") {
+                // changeimage and caption
+                currentImage = (currentImage + 1) % images.length;
+                document.getElementById('mainImage').src = images[currentImage].src;
+                document.getElementById('caption').innerText = images[currentImage].caption;
+            } else if (targetId === "caption") {
+                // change caption text color
+                var caption = document.getElementById('caption');
+                caption.style.color = caption.style.color === 'red' ? 'black' : 'red';
+            }
+        }
+    </script>
+</body>
+</html>
